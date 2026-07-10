@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Commentrix was a sunset AI sports commentary experiment for generating voice commentary from sports video.">
+  <title>Commentrix - AI Sports Commentary Archive</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="brand" href="#top">Commentrix</a>
+      <div class="nav-links">
+        <a href="#archive">Archive</a>
+        <a href="#mvp">MVP</a>
+        <a href="#status">Status</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Commentrix overview">
+      <div class="hero-media" aria-hidden="true">
+        <iframe
+          id="hero-video"
+          src="https://player.vimeo.com/video/1102153335?autoplay=1&muted=1&loop=1&controls=0&title=0&byline=0&portrait=0&dnt=1"
+          title="Commentrix demo reel"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share">
+        </iframe>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <button type="button" id="audio-toggle" class="audio-toggle" aria-pressed="false">
+        <svg class="icon icon-muted" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="4 9 8 9 12 5 12 19 8 15 4 15 4 9"></polygon>
+          <line x1="17" y1="9" x2="22" y2="14"></line>
+          <line x1="22" y1="9" x2="17" y2="14"></line>
+        </svg>
+        <svg class="icon icon-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="4 9 8 9 12 5 12 19 8 15 4 15 4 9"></polygon>
+          <path d="M16 8a5 5 0 0 1 0 8"></path>
+          <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
+        </svg>
+        <span class="audio-toggle__label">Turn on commentary audio</span>
+      </button>
+
+      <div class="hero-content">
+        <div class="lower-third">
+          <span class="tally" aria-hidden="true"></span>
+          <span class="lower-third__status">Off air</span>
+          <span class="lower-third__divider" aria-hidden="true">/</span>
+          <span class="lower-third__tag">Sunset archive</span>
+        </div>
+        <h1>Commentrix</h1>
+        <p class="hero-copy">
+          Commentrix watched game film, wrote play-by-play commentary, and voiced it in real broadcaster style —
+          an AI sports-commentary experiment that's now off the air.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#archive">View the archive</a>
+          <a class="button secondary" href="#mvp">Read MVP notes</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="archive" class="section" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Reel — what it explored</p>
+        <h2>Automated commentary for sports video</h2>
+        <p>
+          Commentrix tested whether a video model could spot the moments that matter, write commentary for them,
+          and hand back a voice track that lines up with the footage.
+        </p>
+      </div>
+
+      <div class="signal-chain">
+        <article class="chain-card" data-reveal>
+          <div class="chain-card__head">
+            <span class="chain-card__ch">Ch.1</span>
+            <span class="card-kicker">Capture</span>
+          </div>
+          <h3>Frame-by-frame vision</h3>
+          <p>Sampled the video in sequence and sent the frames to Gemini for context-aware analysis of the play.</p>
+        </article>
+        <article class="chain-card" data-reveal>
+          <div class="chain-card__head">
+            <span class="chain-card__ch">Ch.2</span>
+            <span class="card-kicker">Commentary</span>
+          </div>
+          <h3>Synthetic narration</h3>
+          <p>Turned the selected commentary lines into spoken audio with ElevenLabs voice synthesis.</p>
+        </article>
+        <article class="chain-card" data-reveal>
+          <div class="chain-card__head">
+            <span class="chain-card__ch">Ch.3</span>
+            <span class="card-kicker">Broadcast</span>
+          </div>
+          <h3>Video and subtitles</h3>
+          <p>Rendered a final video track with an SRT file that keeps commentary in sync with the source footage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="mvp" class="section split-section" data-reveal>
+      <div>
+        <p class="eyebrow">Reel — prototype notes</p>
+        <h2>The MVP code stays in the repository</h2>
+      </div>
+      <div class="copy-stack">
+        <p>
+          The FastAPI MVP is kept for reference, but it isn't deployed on this site. The live Cloudflare Pages
+          surface serves only this static landing archive.
+        </p>
+        <p>
+          Running the MVP locally needs your own API keys and a local input video. Generated videos, subtitles,
+          virtual environments, and environment files are intentionally left out of the public repo.
+        </p>
+      </div>
+    </section>
+
+    <section id="status" class="status-band" data-reveal>
+      <div class="status-band__signal">
+        <span class="tally tally--band" aria-hidden="true"></span>
+        <span>Off air</span>
+      </div>
+      <div class="status-band__copy">
+        <p class="eyebrow">Current status</p>
+        <h2>Commentrix has been sunset.</h2>
+        <p>
+          The project isn't taking on customers, demos, pilots, or support requests anymore. This site stays up as
+          a public record of the concept and the prototype that ran it.
+        </p>
+      </div>
+    </section>
+
+    <section id="faq" class="section" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Reel — FAQ</p>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq-list">
+        <article>
+          <h3>Is Commentrix available to use?</h3>
+          <p>No. Commentrix is a sunset project and isn't offered as a commercial product.</p>
+        </article>
+        <article>
+          <h3>What models did the prototype use?</h3>
+          <p>The MVP was built around Gemini for video-frame understanding and ElevenLabs for text-to-speech output.</p>
+        </article>
+        <article>
+          <h3>Can the MVP run from this website?</h3>
+          <p>No. Cloudflare Pages serves only the static archive in the <code>docs/</code> folder.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Archived project by Commentrix.</p>
+    <div>
+      <a href="https://github.com/sathwik-mamidi/commentrix" target="_blank" rel="noopener">GitHub</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </footer>
+
+  <a class="builder-badge" href="https://sathwikmamidi.com" target="_blank" rel="noopener">
+    <span>Built by Sathwik Mamidi</span>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </a>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

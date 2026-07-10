@@ -1,0 +1,37 @@
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Node and Cloudflare leftovers
+node_modules/
+.wrangler/
+npm-debug.log*
+
+# Generated media and local inputs
+mvp/public/*.mp4
+mvp/public/*.mov
+mvp/public/*.mkv
+mvp/public/*.wav
+mvp/public/*.mp3
+mvp/public/*.srt
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commentrix MVP - AI Sports Commentary</title>
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Sunset prototype</p>
+        <h1>Commentrix MVP</h1>
+      </div>
+      <div id="status" class="status-pill" aria-live="polite">
+        <span class="status-dot idle"></span>
+        <span data-status-label>Connecting</span>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <div class="video-panel">
+        <video id="videoPlayer" controls muted playsinline>
+          <source src="/public/input.mp4" type="video/mp4">
+        </video>
+        <div id="videoTimestamp" class="timestamp">0:00 / 0:00</div>
+        <div id="loading-overlay" class="loading-overlay" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Analyzing the next segment</p>
+        </div>
+      </div>
+
+      <aside class="commentary-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Generated feed</p>
+          <h2>Live Commentary</h2>
+        </div>
+        <div id="commentary-container" class="commentary-list">
+          <p class="empty-state">Commentary appears here after the first segment is processed.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="control-bar">
+      <button id="startButton" type="button">Start</button>
+      <button id="stopButton" type="button" class="danger">Stop</button>
+      <a href="/output.mp4" download>Download video</a>
+      <a href="/output.srt" download>Download subtitles</a>
+    </footer>
+  </main>
+
+  <script src="/static/index.js"></script>
+</body>
+
+</html>
